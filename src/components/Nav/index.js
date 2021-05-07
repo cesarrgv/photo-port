@@ -15,8 +15,8 @@ const categories = [
   ];
 
 
-function categorySelected(name) {
-    console.log(`${name} clicked`)
+function categorySelected(event, theName) {
+    console.log(`${theName} clicked`);
 }
 
 function About() {
@@ -41,11 +41,13 @@ function About() {
                 <li
                 className="mx-1"
                 key={category.name}
-            >
-                <span onClick={categorySelected(category.name)} >
-                {category.name}
-                </span>
-            </li>
+                >
+                    <span onClick={(e) => {
+                                      categorySelected(e, category.name);
+                                  }}>
+                    {category.name}
+                    </span>
+                </li>
             ))}
             </ul>
         </nav>
